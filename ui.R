@@ -1,0 +1,33 @@
+library(shiny)
+
+shinyUI(
+  pageWithSidebar(
+    # Application title
+    headerPanel("Body Mass Index (BMI) Calculator"),
+    
+    sidebarPanel(
+      numericInput('height', 'Height (cm)', 150, min = 10, max = 300),
+      numericInput('weight', 'Weight (kg)', 50, min = 10, max = 300, step = 0.1),
+      submitButton('Submit'),
+      
+      helpText(""),
+      helpText("Instructions:"),
+      helpText("1. Enter your height in cm"),
+      helpText("2. Enter your weight in kg"),
+      helpText("3. Press \"Submit\" button"),
+      helpText("Your BMI and classification will be displayed on the Results panel."),
+      helpText("BMI classification is adapted from World Health Organization's data.")
+    ),
+    mainPanel(
+      h3('Results'),
+      h4('Height you entered (cm)'),
+      verbatimTextOutput("inputHeight"),
+      h4('Weight you entered (kg)'),
+      verbatimTextOutput("inputWeight"),
+      h4('Your BMI'),
+      verbatimTextOutput("bmi"),
+      h4('Your BMI Classification (for Adults)'),
+      verbatimTextOutput("bmiClass")
+    )
+  )
+)
