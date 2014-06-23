@@ -16,7 +16,10 @@ shinyUI(
       helpText("2. Enter your weight in kg"),
       helpText("3. Press \"Submit\" button"),
       helpText("Your BMI and classification will be displayed on the Results panel."),
-      helpText("BMI classification is adapted from World Health Organization's data.")
+      helpText("BMI classification is adapted from ",  
+               a("World Health Organization", href = "http://apps.who.int/bmi/index.jsp?introPage=intro_3.html"), 
+               "'s data."),
+      a("Presentation for this app", href="http://rubyrail.github.io/bmicalcSlides")
     ),
     mainPanel(
       h3('Results'),
